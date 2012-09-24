@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SpecModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SpecModelStoreContainer">
+          <EntitySet Name="CAI" EntityType="SpecModel.Store.CAI" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Spec" EntityType="SpecModel.Store.Spec" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Spec_CAI" Association="SpecModel.Store.FK_Spec_CAI">
+            <End Role="CAI" EntitySet="CAI" />
+            <End Role="Spec" EntitySet="Spec" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CAI">
+          <Key>
+            <PropertyRef Name="CAI" />
+          </Key>
+          <Property Name="CAI" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="BarKodFamilija" Type="varchar" MaxLength="10" />
+          <Property Name="InterniKod" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="Naziv" Type="varchar" MaxLength="50" />
+          <Property Name="Dezen" Type="varchar" MaxLength="30" />
+          <Property Name="Dimenzija" Type="varchar" MaxLength="30" />
+          <Property Name="Aktivan" Type="bit" />
+        </EntityType>
+        <EntityType Name="Spec">
+          <Key>
+            <PropertyRef Name="CB" />
+          </Key>
+          <Property Name="StatusDimenzije" Type="varchar" MaxLength="10" />
+          <Property Name="CAI" Type="varchar" MaxLength="10" />
+          <Property Name="CB" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="PDI" Type="varchar" MaxLength="20" />
+          <Property Name="DatumPDI" Type="datetime" />
+          <Property Name="TestBroj" Type="varchar" MaxLength="50" />
+          <Property Name="MasaGume" Type="int" />
+          <Property Name="GornjaTolerancija" Type="int" />
+          <Property Name="DonjaTolerancija" Type="int" />
+          <Property Name="BrojBubnja" Type="varchar" MaxLength="20" />
+          <Property Name="KONRastojanjeSredineZObrucaET" Type="int" />
+          <Property Name="KONSirinaPlocicaNaBubnju" Type="int" />
+          <Property Name="KONSifraProfila" Type="varchar" MaxLength="20" />
+          <Property Name="KONBrojPlatna" Type="int" />
+          <Property Name="GI" Type="int" />
+          <Property Name="GIDuzina" Type="int" />
+          <Property Name="GISifra" Type="varchar" MaxLength="20" />
+          <Property Name="GITezina" Type="int" />
+          <Property Name="NC1" Type="int" />
+          <Property Name="NC1Duzina" Type="int" />
+          <Property Name="NC1Sifra" Type="varchar" MaxLength="20" />
+          <Property Name="NC1Tezina" Type="int" />
+          <Property Name="NC2" Type="int" />
+          <Property Name="NC2Duzina" Type="int" />
+          <Property Name="NC2Sifra" Type="varchar" MaxLength="20" />
+          <Property Name="NC2Tezina" Type="int" />
+          <Property Name="NST1" Type="int" />
+          <Property Name="NST1Duzina" Type="int" />
+          <Property Name="NST1Sifra" Type="varchar" MaxLength="20" />
+          <Property Name="NST1Tezina" Type="int" />
+          <Property Name="NST2" Type="int" />
+          <Property Name="NST2Duzina" Type="int" />
+          <Property Name="NST2Sifra" Type="varchar" MaxLength="20" />
+          <Property Name="NST2Tezina" Type="int" />
+          <Property Name="ANG" Type="real" />
+          <Property Name="ANGNST" Type="real" />
+          <Property Name="BTLARG" Type="varchar" MaxLength="20" />
+          <Property Name="LankTT" Type="varchar" MaxLength="20" />
+          <Property Name="LankSifra" Type="varchar" MaxLength="20" />
+          <Property Name="LankObim" Type="int" />
+          <Property Name="SirinaRamena" Type="int" />
+          <Property Name="UkupnaSirinaFT" Type="int" />
+          <Property Name="PKX" Type="varchar" MaxLength="20" />
+          <Property Name="POIDSFT" Type="int" />
+          <Property Name="DuzinaFT" Type="int" />
+          <Property Name="FTET" Type="int" />
+          <Property Name="Arhivirana" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Spec_CAI">
+          <End Role="CAI" Type="SpecModel.Store.CAI" Multiplicity="0..1" />
+          <End Role="Spec" Type="SpecModel.Store.Spec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAI">
+              <PropertyRef Name="CAI" />
+            </Principal>
+            <Dependent Role="Spec">
+              <PropertyRef Name="CAI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SpecModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="TREntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CAIs" EntityType="SpecModel.CAI" />
+          <EntitySet Name="Specs" EntityType="SpecModel.Spec" />
+          <AssociationSet Name="FK_Spec_CAI" Association="SpecModel.FK_Spec_CAI">
+            <End Role="CAI" EntitySet="CAIs" />
+            <End Role="Spec" EntitySet="Specs" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CAI">
+          <Key>
+            <PropertyRef Name="CAI1" />
+          </Key>
+          <Property Name="CAI1" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="BarKodFamilija" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="InterniKod" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="Naziv" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Dezen" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Dimenzija" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Aktivan" Type="Boolean" />
+          <NavigationProperty Name="Specs" Relationship="SpecModel.FK_Spec_CAI" FromRole="CAI" ToRole="Spec" />
+        </EntityType>
+        <EntityType Name="Spec">
+          <Key>
+            <PropertyRef Name="CB" />
+          </Key>
+          <Property Name="StatusDimenzije" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="CAI" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="CB" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="PDI" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DatumPDI" Type="DateTime" />
+          <Property Name="TestBroj" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="MasaGume" Type="Int32" />
+          <Property Name="GornjaTolerancija" Type="Int32" />
+          <Property Name="DonjaTolerancija" Type="Int32" />
+          <Property Name="BrojBubnja" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="KONRastojanjeSredineZObrucaET" Type="Int32" />
+          <Property Name="KONSirinaPlocicaNaBubnju" Type="Int32" />
+          <Property Name="KONSifraProfila" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="KONBrojPlatna" Type="Int32" />
+          <Property Name="GI" Type="Int32" />
+          <Property Name="GIDuzina" Type="Int32" />
+          <Property Name="GISifra" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="GITezina" Type="Int32" />
+          <Property Name="NC1" Type="Int32" />
+          <Property Name="NC1Duzina" Type="Int32" />
+          <Property Name="NC1Sifra" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NC1Tezina" Type="Int32" />
+          <Property Name="NC2" Type="Int32" />
+          <Property Name="NC2Duzina" Type="Int32" />
+          <Property Name="NC2Sifra" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NC2Tezina" Type="Int32" />
+          <Property Name="NST1" Type="Int32" />
+          <Property Name="NST1Duzina" Type="Int32" />
+          <Property Name="NST1Sifra" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NST1Tezina" Type="Int32" />
+          <Property Name="NST2" Type="Int32" />
+          <Property Name="NST2Duzina" Type="Int32" />
+          <Property Name="NST2Sifra" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="NST2Tezina" Type="Int32" />
+          <Property Name="ANG" Type="Single" />
+          <Property Name="ANGNST" Type="Single" />
+          <Property Name="BTLARG" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="LankTT" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="LankSifra" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="LankObim" Type="Int32" />
+          <Property Name="SirinaRamena" Type="Int32" />
+          <Property Name="UkupnaSirinaFT" Type="Int32" />
+          <Property Name="PKX" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="POIDSFT" Type="Int32" />
+          <Property Name="DuzinaFT" Type="Int32" />
+          <Property Name="FTET" Type="Int32" />
+          <Property Name="Arhivirana" Type="Boolean" />
+          <NavigationProperty Name="CAI1" Relationship="SpecModel.FK_Spec_CAI" FromRole="Spec" ToRole="CAI" />
+        </EntityType>
+        <Association Name="FK_Spec_CAI">
+          <End Role="CAI" Type="SpecModel.CAI" Multiplicity="0..1" />
+          <End Role="Spec" Type="SpecModel.Spec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAI">
+              <PropertyRef Name="CAI1" />
+            </Principal>
+            <Dependent Role="Spec">
+              <PropertyRef Name="CAI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SpecModelStoreContainer" CdmEntityContainer="TREntities2">
+          <EntitySetMapping Name="CAIs"><EntityTypeMapping TypeName="SpecModel.CAI"><MappingFragment StoreEntitySet="CAI">
+            <ScalarProperty Name="CAI1" ColumnName="CAI" />
+            <ScalarProperty Name="BarKodFamilija" ColumnName="BarKodFamilija" />
+            <ScalarProperty Name="InterniKod" ColumnName="InterniKod" />
+            <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+            <ScalarProperty Name="Dezen" ColumnName="Dezen" />
+            <ScalarProperty Name="Dimenzija" ColumnName="Dimenzija" />
+            <ScalarProperty Name="Aktivan" ColumnName="Aktivan" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Specs"><EntityTypeMapping TypeName="SpecModel.Spec"><MappingFragment StoreEntitySet="Spec">
+            <ScalarProperty Name="StatusDimenzije" ColumnName="StatusDimenzije" />
+            <ScalarProperty Name="CAI" ColumnName="CAI" />
+            <ScalarProperty Name="CB" ColumnName="CB" />
+            <ScalarProperty Name="PDI" ColumnName="PDI" />
+            <ScalarProperty Name="DatumPDI" ColumnName="DatumPDI" />
+            <ScalarProperty Name="TestBroj" ColumnName="TestBroj" />
+            <ScalarProperty Name="MasaGume" ColumnName="MasaGume" />
+            <ScalarProperty Name="GornjaTolerancija" ColumnName="GornjaTolerancija" />
+            <ScalarProperty Name="DonjaTolerancija" ColumnName="DonjaTolerancija" />
+            <ScalarProperty Name="BrojBubnja" ColumnName="BrojBubnja" />
+            <ScalarProperty Name="KONRastojanjeSredineZObrucaET" ColumnName="KONRastojanjeSredineZObrucaET" />
+            <ScalarProperty Name="KONSirinaPlocicaNaBubnju" ColumnName="KONSirinaPlocicaNaBubnju" />
+            <ScalarProperty Name="KONSifraProfila" ColumnName="KONSifraProfila" />
+            <ScalarProperty Name="KONBrojPlatna" ColumnName="KONBrojPlatna" />
+            <ScalarProperty Name="GI" ColumnName="GI" />
+            <ScalarProperty Name="GIDuzina" ColumnName="GIDuzina" />
+            <ScalarProperty Name="GISifra" ColumnName="GISifra" />
+            <ScalarProperty Name="GITezina" ColumnName="GITezina" />
+            <ScalarProperty Name="NC1" ColumnName="NC1" />
+            <ScalarProperty Name="NC1Duzina" ColumnName="NC1Duzina" />
+            <ScalarProperty Name="NC1Sifra" ColumnName="NC1Sifra" />
+            <ScalarProperty Name="NC1Tezina" ColumnName="NC1Tezina" />
+            <ScalarProperty Name="NC2" ColumnName="NC2" />
+            <ScalarProperty Name="NC2Duzina" ColumnName="NC2Duzina" />
+            <ScalarProperty Name="NC2Sifra" ColumnName="NC2Sifra" />
+            <ScalarProperty Name="NC2Tezina" ColumnName="NC2Tezina" />
+            <ScalarProperty Name="NST1" ColumnName="NST1" />
+            <ScalarProperty Name="NST1Duzina" ColumnName="NST1Duzina" />
+            <ScalarProperty Name="NST1Sifra" ColumnName="NST1Sifra" />
+            <ScalarProperty Name="NST1Tezina" ColumnName="NST1Tezina" />
+            <ScalarProperty Name="NST2" ColumnName="NST2" />
+            <ScalarProperty Name="NST2Duzina" ColumnName="NST2Duzina" />
+            <ScalarProperty Name="NST2Sifra" ColumnName="NST2Sifra" />
+            <ScalarProperty Name="NST2Tezina" ColumnName="NST2Tezina" />
+            <ScalarProperty Name="ANG" ColumnName="ANG" />
+            <ScalarProperty Name="ANGNST" ColumnName="ANGNST" />
+            <ScalarProperty Name="BTLARG" ColumnName="BTLARG" />
+            <ScalarProperty Name="LankTT" ColumnName="LankTT" />
+            <ScalarProperty Name="LankSifra" ColumnName="LankSifra" />
+            <ScalarProperty Name="LankObim" ColumnName="LankObim" />
+            <ScalarProperty Name="SirinaRamena" ColumnName="SirinaRamena" />
+            <ScalarProperty Name="UkupnaSirinaFT" ColumnName="UkupnaSirinaFT" />
+            <ScalarProperty Name="PKX" ColumnName="PKX" />
+            <ScalarProperty Name="POIDSFT" ColumnName="POIDSFT" />
+            <ScalarProperty Name="DuzinaFT" ColumnName="DuzinaFT" />
+            <ScalarProperty Name="FTET" ColumnName="FTET" />
+            <ScalarProperty Name="Arhivirana" ColumnName="Arhivirana" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="OldModel" ZoomLevel="72">
+        <EntityTypeShape EntityType="SpecModel.CAI" Width="1.5" PointX="0.75" PointY="5.125" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpecModel.Spec" Width="1.5" PointX="3" PointY="1.375" Height="10.249248046875" IsExpanded="true" />
+        <AssociationConnector Association="SpecModel.FK_Spec_CAI" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="6.4035953776041667" />
+          <ConnectorPoint PointX="3" PointY="6.4035953776041667" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

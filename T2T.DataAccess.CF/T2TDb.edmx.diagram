@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="69c2c9ef71464562ba735d5c9333b176" Name="Basic">
+        <EntityTypeShape EntityType="T2TModel.Calendar" Width="1.5" PointX="0.5" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Constant" Width="1.5" PointX="0.625" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Culture" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.HandlingUnit" Width="1.5" PointX="3.125" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Parametar" Width="1.5" PointX="5.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Photo" Width="1.5" PointX="8.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.QualityReason" Width="1.5" PointX="3.125" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Reason" Width="1.5" PointX="3.625" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Referencial" Width="1.5" PointX="3.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Sequence" Width="1.5" PointX="0.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Shift" Width="1.5" PointX="8.875" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.UnitOfMeasure" Width="1.5" PointX="5.625" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.Location" Width="1.5" PointX="7.25" PointY="3.25" IsExpanded="true" />
+      </Diagram>
+      <Diagram DiagramId="3c051308b50d455dbe286628a702396a" Name="Resources" ZoomLevel="45" >
+        <EntityTypeShape EntityType="T2TModel.ResourceInventory" Width="2" PointX="19" PointY="13.25" />
+        <EntityTypeShape EntityType="T2TModel.ResourceLotTracking" Width="1.875" PointX="0.5" PointY="14.75" />
+        <EntityTypeShape EntityType="T2TModel.ResourceLotStatus" Width="2" PointX="0.5" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="T2TModel.ResourceType" Width="1.5" PointX="10.625" PointY="3.625" />
+        <EntityTypeShape EntityType="T2TModel.ResourceProperty" Width="2" PointX="13.75" PointY="0.5" />
+        <EntityTypeShape EntityType="T2TModel.ResourceClass" Width="1.875" PointX="6.875" PointY="0.625" />
+        <EntityTypeShape EntityType="T2TModel.ResourceLot" Width="2.5" PointX="0.5" PointY="9.125" />
+        <EntityTypeShape EntityType="T2TModel.ResourceLevel" Width="1.5" PointX="0.625" PointY="0.625" />
+        <EntityTypeShape EntityType="T2TModel.ResourceDocument" Width="1.5" PointX="13.375" PointY="16.375" />
+        <EntityTypeShape EntityType="T2TModel.BillOfResource" Width="1.5" PointX="20.125" PointY="0.5" />
+        <EntityTypeShape EntityType="T2TModel.ResourceReview" Width="1.5" PointX="11" PointY="16.25" />
+        <EntityTypeShape EntityType="T2TModel.ResourceDefinition" Width="2.25" PointX="6.125" PointY="6.875" />
+        <AssociationConnector Association="T2TModel.FK_ResourceDefinition_ToResourceClass" />
+        <EntityTypeShape EntityType="T2TModel.Material" Width="1.5" PointX="9.625" PointY="6.375" FillColor="128, 128, 255" />
+        <InheritanceConnector EntityType="T2TModel.Material" />
+        <EntityTypeShape EntityType="T2TModel.Property" Width="2.375" PointX="16.375" PointY="0.5" />
+        <AssociationConnector Association="T2TModel.FK_ResourceProperty_ToProperty" />
+        <AssociationConnector Association="T2TModel.FK_ResourceProperty_ToResourceClass" />
+        <AssociationConnector Association="T2TModel.FK_ResourceLot_ToResourceDefinition" />
+        <AssociationConnector Association="T2TModel.FK_ResourceProperty_ToResourceDefinition" />
+        <AssociationConnector Association="T2TModel.FK_ResourceLot_ToResourceLotStatus" />
+        <AssociationConnector Association="T2TModel.FK_ResourceLotTracking_ToResourceLot" />
+        <AssociationConnector Association="T2TModel.FK_ResourceProperty_ToResourceLot" />
+        <EntityTypeShape EntityType="T2TModel.Equipment" Width="1.5" PointX="9.625" PointY="8.125" />
+        <InheritanceConnector EntityType="T2TModel.Equipment" />
+        <EntityTypeShape EntityType="T2TModel.Personnel" Width="1.5" PointX="9.625" PointY="9.625" />
+        <InheritanceConnector EntityType="T2TModel.Personnel" />
+        <EntityTypeShape EntityType="T2TModel.PhysicalAsset" Width="1.5" PointX="9.625" PointY="11.125" />
+        <InheritanceConnector EntityType="T2TModel.PhysicalAsset" />
+        <AssociationConnector Association="T2TModel.FK_ResourceLot_ToResourceDefinition1" />
+        <EntityTypeShape EntityType="T2TModel.ResourcePhoto" Width="3.125" PointX="11.75" PointY="13.625" />
+        <AssociationConnector Association="T2TModel.FK_ResourcePhoto_ToResourceDefinition" />
+        <EntityTypeShape EntityType="T2TModel.ResourceRequirement" Width="1.625" PointX="3.375" PointY="0.5" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirement_ToResourceClass" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirement_ToResourceDefintion" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirement_ToResourceLot" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirement_ToResourceType" />
+        <EntityTypeShape EntityType="T2TModel.ResourceSpecification" Width="2.375" PointX="6.625" PointY="14.5" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecification_ToResourceClass" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecification_ToResourceDefinition" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecification_ToResourceLot" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecification_ToResourceType" />
+        <EntityTypeShape EntityType="T2TModel.ResourceCapability" Width="2" PointX="3.75" PointY="14.125" />
+        <AssociationConnector Association="T2TModel.FK_ResourceCapability_ToResourceDefinition" />
+        <AssociationConnector Association="T2TModel.FK_ResourceCapability_ToResourceLot" />
+        <EntityTypeShape EntityType="T2TModel.ResourceActual" Width="1.875" PointX="3.25" PointY="4.625" />
+        <AssociationConnector Association="T2TModel.FK_ResourceActual_ToResourceDefinition" />
+        <AssociationConnector Association="T2TModel.FK_ResourceActual_ToResourceLot" />
+        <AssociationConnector Association="T2TModel.FK_ResourceActual_ToResourceType" />
+        <EntityTypeShape EntityType="T2TModel.Photo" Width="1.5" PointX="9.75" PointY="13.5" />
+        <AssociationConnector Association="T2TModel.FK_ResourcePhoto_ToPhoto" />
+        <EntityTypeShape EntityType="T2TModel.EquipmentHmiData" Width="1.5" PointX="18" PointY="9.625" />
+        <EntityTypeShape EntityType="T2TModel.Equipment1" Width="1.5" PointX="21.75" PointY="9.5" />
+        <AssociationConnector Association="T2TModel.FK_EquipmentHmiData_Equipments" />
+        <EntityTypeShape EntityType="T2TModel.Carcass" Width="1.5" PointX="16.125" PointY="6.375" />
+        <InheritanceConnector EntityType="T2TModel.Carcass" />
+        <EntityTypeShape EntityType="T2TModel.Protector" Width="1.5" PointX="20.25" PointY="6.25" />
+        <InheritanceConnector EntityType="T2TModel.Protector" />
+        <EntityTypeShape EntityType="T2TModel.ScooterRawTyre" Width="1.5" PointX="18.125" PointY="6.25" />
+        <InheritanceConnector EntityType="T2TModel.ScooterRawTyre" />
+        <EntityTypeShape EntityType="T2TModel.Inerliner" Width="1.5" PointX="12.25" PointY="6.25" />
+        <InheritanceConnector EntityType="T2TModel.Inerliner" />
+        <EntityTypeShape EntityType="T2TModel.Ply" Width="1.5" PointX="22" PointY="6.125" />
+        <EntityTypeShape EntityType="T2TModel.SemiFinishedMaterialInventory" Width="1.5" PointX="21.625" PointY="13.5" />
+        <EntityTypeShape EntityType="T2TModel.Lank" Width="1.5" PointX="14.375" PointY="6.375" />
+        <InheritanceConnector EntityType="T2TModel.Ply" />
+        <InheritanceConnector EntityType="T2TModel.Lank" />
+        <AssociationConnector Association="T2TModel.FK_ResourceClass_ToResourceClass" />
+        <EntityTypeShape EntityType="T2TModel.ScooterTyre" Width="2.375" PointX="24.75" PointY="6.375" />
+        <InheritanceConnector EntityType="T2TModel.ScooterTyre" />
+      </Diagram>
+      <Diagram DiagramId="8457758d6e1e431eace005f0a5a49090" Name="Production" ZoomLevel="42" >
+        <EntityTypeShape EntityType="T2TModel.ResourceActual" Width="2.75" PointX="13.875" PointY="6.25" />
+        <EntityTypeShape EntityType="T2TModel.ResourceCapability" Width="2.25" PointX="11.125" PointY="0.5" />
+        <EntityTypeShape EntityType="T2TModel.WorkDefinition" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="T2TModel.WorkPerformance" Width="2" PointX="9.25" PointY="7" />
+        <EntityTypeShape EntityType="T2TModel.ResourceRequirementProperty" Width="2.375" PointX="8.5" PointY="10.375" />
+        <EntityTypeShape EntityType="T2TModel.ResourceRequirement" Width="2.75" PointX="4.125" PointY="9.125" />
+        <EntityTypeShape EntityType="T2TModel.WorkRequest" Width="1.5" PointX="2.25" PointY="11.25" />
+        <EntityTypeShape EntityType="T2TModel.WorkCapability" Width="2.375" PointX="7.875" PointY="0.5" />
+        <EntityTypeShape EntityType="T2TModel.WorkResponse" Width="2.125" PointX="11.375" PointY="7" />
+        <EntityTypeShape EntityType="T2TModel.ParametarActual" Width="1.625" PointX="14" PointY="10.25" />
+        <EntityTypeShape EntityType="T2TModel.ParametarRequirement" Width="1.875" PointX="6" PointY="6.875" />
+        <EntityTypeShape EntityType="T2TModel.WorkSpecification" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="T2TModel.WorkSchedule" Width="1.5" PointX="0.625" PointY="11.375" />
+        <EntityTypeShape EntityType="T2TModel.ResourceSpecificationProperty" Width="2.5" PointX="6.5" PointY="2.875" />
+        <EntityTypeShape EntityType="T2TModel.ResourceSpecification" Width="2.375" PointX="3.25" PointY="3.875" />
+        <EntityTypeShape EntityType="T2TModel.WorkProcessSegment" Width="2" PointX="0.5" PointY="3.25" />
+        <EntityTypeShape EntityType="T2TModel.ResourceActualProperty" Width="3.5" PointX="17.375" PointY="6.25" />
+        <AssociationConnector Association="T2TModel.FK_ResourceActual_ToWorkResponse" />
+        <AssociationConnector Association="T2TModel.FK_ResourceActualProperty_ToResourceActual" />
+        <AssociationConnector Association="T2TModel.FK_ResourceCapability_ToWorkCapability" />
+        <AssociationConnector Association="T2TModel.FK_ResourceCapability_ToWorkProcessSegment" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecification_ToWorkProcessSegment" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecificationProperty_ResourceSpecification" />
+        <EntityTypeShape EntityType="T2TModel.ResourceClass" Width="1.5" PointX="0.75" PointY="5.125" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirement_ToResourceClass" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecification_ToResourceClass" />
+        <EntityTypeShape EntityType="T2TModel.ResourceType" Width="1.5" PointX="0.5" PointY="8.625" />
+        <AssociationConnector Association="T2TModel.FK_ResourceActual_ToResourceType" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirement_ToResourceType" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecification_ToResourceType" />
+        <EntityTypeShape EntityType="T2TModel.Property" Width="1.5" PointX="3.875" PointY="0.5" />
+        <AssociationConnector Association="T2TModel.FK_ResourceActualProperty_ToProperty" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirementProperty_ToProperty" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecificationProperty_Property" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirementProperty_ToResourceRequirement1" />
+        <EntityTypeShape EntityType="T2TModel.ResourcePhoto" Width="1.5" PointX="17.875" PointY="1.5" />
+        <EntityTypeShape EntityType="T2TModel.ResourceCapabilityProperty" Width="1.5" PointX="13.625" PointY="1" />
+        <AssociationConnector Association="T2TModel.FK_ResourceCapabilityProperty_ToProperty" />
+        <AssociationConnector Association="T2TModel.FK_ResourceCapabilityProperty_ToResourceCapability" />
+        <AssociationConnector Association="T2TModel.FK_ResourceClass_ToResourceClass" />
+        <EntityTypeShape EntityType="T2TModel.ResourceDefinition" Width="3.5" PointX="20.75" PointY="12.25" />
+        <AssociationConnector Association="T2TModel.FK_ResourceDefinition_ToResourceClass" />
+        <AssociationConnector Association="T2TModel.FK_ResourceActual_ToResourceDefinition" />
+        <AssociationConnector Association="T2TModel.FK_ResourceCapability_ToResourceDefinition" />
+        <AssociationConnector Association="T2TModel.FK_ResourceRequirement_ToResourceDefintion" />
+        <AssociationConnector Association="T2TModel.FK_ResourceSpecification_ToResourceDefinition" />
+        <AssociationConnector Association="T2TModel.FK_ResourcePhoto_ToResourceDefinition" />
+        <EntityTypeShape EntityType="T2TModel.Material" Width="1.5" PointX="35.125" PointY="5.125" />
+        <InheritanceConnector EntityType="T2TModel.Material" />
+        <EntityTypeShape EntityType="T2TModel.Equipment" Width="1.5" PointX="21.625" PointY="5.125" />
+        <InheritanceConnector EntityType="T2TModel.Equipment" />
+        <EntityTypeShape EntityType="T2TModel.Personnel" Width="1.5" PointX="23.875" PointY="5.125" />
+        <InheritanceConnector EntityType="T2TModel.Personnel" />
+        <EntityTypeShape EntityType="T2TModel.PhysicalAsset" Width="1.5" PointX="26.125" PointY="5.125" />
+        <InheritanceConnector EntityType="T2TModel.PhysicalAsset" />
+        <EntityTypeShape EntityType="T2TModel.Carcass" Width="1.5" PointX="35.125" PointY="6.875" />
+        <InheritanceConnector EntityType="T2TModel.Carcass" />
+        <EntityTypeShape EntityType="T2TModel.Inerliner" Width="1.5" PointX="37.375" PointY="6.875" />
+        <InheritanceConnector EntityType="T2TModel.Inerliner" />
+        <EntityTypeShape EntityType="T2TModel.Lank" Width="1.5" PointX="39.625" PointY="6.875" />
+        <InheritanceConnector EntityType="T2TModel.Lank" />
+        <EntityTypeShape EntityType="T2TModel.Ply" Width="1.5" PointX="41.875" PointY="6.875" />
+        <InheritanceConnector EntityType="T2TModel.Ply" />
+        <EntityTypeShape EntityType="T2TModel.Protector" Width="1.5" PointX="28.375" PointY="6.875" />
+        <InheritanceConnector EntityType="T2TModel.Protector" />
+        <EntityTypeShape EntityType="T2TModel.ScooterRawTyre" Width="1.5" PointX="30.625" PointY="6.875" />
+        <InheritanceConnector EntityType="T2TModel.ScooterRawTyre" />
+        <EntityTypeShape EntityType="T2TModel.ScooterTyre" Width="1.5" PointX="32.875" PointY="6.875" />
+        <InheritanceConnector EntityType="T2TModel.ScooterTyre" />
+        <EntityTypeShape EntityType="T2TModel.ResourceDocument" Width="1.5" PointX="11.375" PointY="13.25" />
+        </Diagram>
+      <Diagram DiagramId="3dd3a283b22446bfabc5214512ad4cad" Name="admin" >
+        <EntityTypeShape EntityType="T2TModel.ErrorLog" Width="1.5" PointX="2" PointY="2.25" />
+        <EntityTypeShape EntityType="T2TModel.DatabaseLog" Width="1.5" PointX="4.375" PointY="0.75" />
+      </Diagram>
+      <Diagram DiagramId="63404ff10e3248068b787deccac7ed13" Name="Tests" >
+        <EntityTypeShape EntityType="T2TModel.TestResult" Width="1.5" PointX="2.75" PointY="2.125" />
+        <EntityTypeShape EntityType="T2TModel.TestSpecificationProperty" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="T2TModel.TestSpecification" Width="1.5" PointX="2.75" PointY="4.75" />
+        <EntityTypeShape EntityType="T2TModel.TestResultProperty" Width="1.5" PointX="6.625" PointY="1.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

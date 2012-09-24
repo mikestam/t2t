@@ -1,0 +1,231 @@
+﻿<UserControl 
+  x:Class="T2T.MainPage"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation" 
+  xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+  xmlns:dataControls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.DataForm.Toolkit" 
+   xmlns:layout="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit"
+  xmlns:login="clr-namespace:T2T.LoginUI"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+  xmlns:f="http://www.milanstamenovic.com/framework"
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480">
+ <UserControl.Resources>
+        <Style x:Key="MyTransitioningContentControlStyle" TargetType="layout:TransitioningContentControl">
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Transition" Value="DefaultTransition"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="layout:TransitioningContentControl">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="2">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="PresentationStates">
+                                    <VisualState x:Name="DefaultTransition">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CurrentContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PreviousContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="PreviousContentPresentationSite">
+                                                <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Collapsed</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="UpTransition">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CurrentContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="CurrentContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="30"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PreviousContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="PreviousContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="-30"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="DownTransition">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="CurrentContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="CurrentContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="-40"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="PreviousContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="0"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                            <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="PreviousContentPresentationSite">
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                                                <SplineDoubleKeyFrame KeyTime="00:00:00.300" Value="40"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid>
+                                <ContentPresenter x:Name="PreviousContentPresentationSite" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{x:Null}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter x:Name="CurrentContentPresentationSite" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{x:Null}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                                    <ContentPresenter.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ContentFrameStyle1" TargetType="navigation:Frame">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate  TargetType="navigation:Frame">
+                        <Border Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <layout:TransitioningContentControl 
+                                Content="{TemplateBinding Content}"
+                                Cursor="{TemplateBinding Cursor}"
+                                Margin="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Style="{StaticResource MyTransitioningContentControlStyle}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+  <Grid x:Name="LayoutRoot" Style="{StaticResource LayoutRootGridStyle}">
+
+        <!--<Border x:Name="BackgroundBorder" Style="{StaticResource ContentBorderStyle}"/>-->
+        <Border x:Name="BackgroundBorder" Style="{StaticResource windowBorder}"/>
+
+        <Border x:Name="ContentBorder" >
+            <navigation:Frame x:Name="ContentFrame" Style="{StaticResource ContentFrameStyle}" 
+                              Source="/Home" Navigated="ContentFrame_Navigated" NavigationFailed="ContentFrame_NavigationFailed">
+                <navigation:Frame.UriMapper>
+                  <uriMapper:UriMapper>
+
+                        <!--Default applicaiton mapper-->
+                        <uriMapper:UriMapping Uri="" MappedUri="/Views/Home.xaml"/>
+
+                        <!-- Start Resources Module Mappings ======================================================================================================== -->
+                        <uriMapper:UriMapping Uri="/Resources" MappedUri="/Resources/Views/Resources.xaml"/>
+                        <uriMapper:UriMapping Uri="/Resources/{pageName}Workspace" MappedUri="Resources/Views/{pageName}BrowserView.xaml"/>
+                        <uriMapper:UriMapping Uri="/Resources/{pageName}key&amp;{trackingKey}" MappedUri="/Resources/Views/{pageName}View.xaml?trackingKey={trackingKey}" />
+                        <uriMapper:UriMapping Uri="/Resources/{pageName}/add" MappedUri="/Resources/{pageName}View.xaml?action=addNew" />
+                        <uriMapper:UriMapping Uri="/Resources/{pageName}/{id}" MappedUri="/Resources/{pageName}View.xaml?id={id}" />
+                        <uriMapper:UriMapping Uri="/Resources/{pageName}" MappedUri="/Resources/Views/{pageName}View.xaml"/>
+                        <!--<uriMapper:UriMapping Uri="/Resources/{pageName}" MappedUri="/T2T;component/Resources/Views/{pageName}View.xaml"/>-->
+
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Views/{pageName}.xaml"/>            
+                </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+                <!--<navigation:Frame.ContentLoader>
+                    <f:NavigationContentLoader />
+                </navigation:Frame.ContentLoader>-->
+            </navigation:Frame>
+           
+       </Border>
+
+    <Grid Style="{StaticResource NavigationOuterGridStyle}">
+      <Grid x:Name="NavigationGrid" Style="{StaticResource NavigationGridStyle}">
+        
+        <Border x:Name="BrandingBorder" Style="{StaticResource BrandingBorderStyle}">
+          <StackPanel x:Name="BrandingStackPanel" Style="{StaticResource BrandingStackPanelStyle}">
+
+            <ContentControl Style="{StaticResource LogoIcon}"/>
+            <TextBlock x:Name="ApplicationNameTextBlock" Style="{StaticResource ApplicationNameStyle}" 
+                               Text="{Binding Strings.ApplicationName, Source={StaticResource ApplicationResources}}"/>
+
+          </StackPanel>
+        </Border>
+
+        <Border x:Name="LinksBorder" Style="{StaticResource LinksBorderStyle}">
+          <StackPanel x:Name="LinksStackPanel" Style="{StaticResource LinksStackPanelStyle}">
+
+           <HyperlinkButton x:Name="Link1" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/Home" TargetName="ContentFrame" Content="home" FontWeight="Normal"/>
+             
+           <HyperlinkButton x:Name="Link5" Style="{StaticResource LinkStyle}"   
+                               NavigateUri="/Resources" TargetName="ContentFrame" Content="resources"/>
+              
+           <HyperlinkButton x:Name="Link3" Style="{StaticResource LinkStyle}" 
+                NavigateUri="/Lots" TargetName="ContentFrame" Content="lots"/>
+
+            <HyperlinkButton x:Name="Link4" Style="{StaticResource LinkStyle}"    NavigateUri="/Production" TargetName="ContentFrame" Content="production"/>
+
+            <HyperlinkButton x:Name="Link6" Style="{StaticResource LinkStyle}"    NavigateUri="/Parametars" TargetName="ContentFrame" Content="parametars"/>
+
+            <HyperlinkButton x:Name="Link7" Style="{StaticResource LinkStyle}"    NavigateUri="/Simulation" TargetName="ContentFrame" Content="simulation"/>
+              
+            <HyperlinkButton x:Name="Link8" Style="{StaticResource LinkStyle}"    NavigateUri="/Analysis" TargetName="ContentFrame" Content="analysis"/>
+
+            <HyperlinkButton x:Name="Link9" Style="{StaticResource LinkStyle}"    NavigateUri="/Reports" TargetName="ContentFrame" Content="reports"/>
+              
+            <Rectangle x:Name="Divider1" Style="{StaticResource DividerStyle}"/>
+
+                        <HyperlinkButton x:Name="Link10" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/About" TargetName="ContentFrame" Content="about" />
+                        <HyperlinkButton x:Name="Link11" Style="{StaticResource LinkStyle}" 
+                                     NavigateUri="/UserControl1" TargetName="ContentFrame" Content="usercontrol" />
+                        <HyperlinkButton x:Name="Proba" Style="{StaticResource LinkStyle}"    TargetName="ContentFrame" Content="reports"/>
+                    </StackPanel>
+        </Border>
+
+      </Grid>
+
+      <Border Style="{StaticResource LoginContainerStyle}">
+          <login:LoginStatus/>           
+      </Border>
+    </Grid>
+
+  </Grid>
+
+</UserControl>

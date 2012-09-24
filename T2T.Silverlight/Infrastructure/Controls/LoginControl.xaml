@@ -1,0 +1,192 @@
+﻿<UserControl
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:ctl="clr-namespace:T2T.Controls"
+  x:Class="T2T.Controls.LoginControl"
+  Width="400" Height="50"
+  Loaded="OnLoaded">
+
+  <UserControl.Resources>
+    <Style x:Key="simpleHyperlink" TargetType="HyperlinkButton">
+      <Setter Property="Width" Value="129" />
+      <Setter Property="Padding" Value="2,0,2,0"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="FontFamily" Value="Segoe UI" />
+      <Setter Property="FontSize" Value="16" />
+      <Setter Property="FontWeight" Value="Bold" />
+      <Setter Property="HorizontalContentAlignment" Value="Center"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="HorizontalAlignment" Value="Right" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Foreground" Value="White" />
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="HyperlinkButton">
+            <Grid Background="{TemplateBinding Background}" Cursor="{TemplateBinding Cursor}">
+              <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                  <VisualState x:Name="Normal"/>
+                  <VisualState x:Name="MouseOver">
+                    <Storyboard>
+                      <DoubleAnimation Duration="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="contentPresenter" To="1" />
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="Pressed"/>
+                  <VisualState x:Name="Disabled">
+                    <Storyboard>
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="DisabledOverlay">
+                        <DiscreteObjectKeyFrame KeyTime="0">
+                          <DiscreteObjectKeyFrame.Value>
+                            <Visibility>Visible</Visibility>
+                          </DiscreteObjectKeyFrame.Value>
+                        </DiscreteObjectKeyFrame>
+                      </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="FocusStates">
+                  <VisualState x:Name="Focused" />
+                  <VisualState x:Name="Unfocused"/>
+                </VisualStateGroup>
+              </VisualStateManager.VisualStateGroups>
+              <ContentPresenter x:Name="contentPresenter" Opacity=".5"
+                ContentTemplate="{TemplateBinding ContentTemplate}"
+                Content="{TemplateBinding Content}"
+                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                Margin="{TemplateBinding Padding}"/>
+            </Grid>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </UserControl.Resources>
+
+  <Grid>
+    <VisualStateManager.VisualStateGroups>
+      <VisualStateGroup x:Name="ControlStates">
+        <VisualStateGroup.Transitions>
+          <VisualTransition GeneratedDuration="0:0:0.5" To="CredentialInput">
+            <VisualTransition.GeneratedEasingFunction>
+              <QuadraticEase EasingMode="EaseInOut"/>
+            </VisualTransition.GeneratedEasingFunction>
+          </VisualTransition>
+          <VisualTransition GeneratedDuration="0:0:0.25" To="Authenticating">
+            <VisualTransition.GeneratedEasingFunction>
+              <QuadraticEase EasingMode="EaseInOut"/>
+            </VisualTransition.GeneratedEasingFunction>
+          </VisualTransition>
+          <VisualTransition GeneratedDuration="0:0:0.25" To="Anonymous">
+            <VisualTransition.GeneratedEasingFunction>
+              <QuadraticEase EasingMode="EaseInOut"/>
+            </VisualTransition.GeneratedEasingFunction>
+          </VisualTransition>
+          <VisualTransition GeneratedDuration="0:0:0.25" To="Authenticated">
+            <VisualTransition.GeneratedEasingFunction>
+              <QuadraticEase EasingMode="EaseInOut"/>
+            </VisualTransition.GeneratedEasingFunction>
+          </VisualTransition>
+        </VisualStateGroup.Transitions>
+        <VisualState x:Name="Anonymous">
+          <Storyboard>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="loginButton">
+              <DiscreteObjectKeyFrame KeyTime="0">
+                <DiscreteObjectKeyFrame.Value>
+                  <Visibility>Visible</Visibility>
+                </DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+          </Storyboard>
+        </VisualState>
+        <VisualState x:Name="Authenticated">
+          <Storyboard>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="logoutButton">
+              <DiscreteObjectKeyFrame KeyTime="0">
+                <DiscreteObjectKeyFrame.Value>
+                  <Visibility>Visible</Visibility>
+                </DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="userLabel" />
+          </Storyboard>
+        </VisualState>
+        <VisualState x:Name="CredentialInput">
+          <Storyboard>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="submitButton">
+              <DiscreteObjectKeyFrame KeyTime="0">
+                <DiscreteObjectKeyFrame.Value>
+                  <Visibility>Visible</Visibility>
+                </DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="userNameTextBox" />
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="passwordBox" />
+          </Storyboard>
+        </VisualState>
+        <VisualState x:Name="Authenticating">
+          <Storyboard>
+            <DoubleAnimation Duration="0" To="0.5" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="loginProgress" />
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="submitButton">
+              <DiscreteObjectKeyFrame KeyTime="0">
+                <DiscreteObjectKeyFrame.Value>
+                  <Visibility>Visible</Visibility>
+                </DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimation Duration="0" To="0.25" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="submitButton" />
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="userNameTextBox" />
+            <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="passwordBox" />
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="loginProgress">
+              <DiscreteObjectKeyFrame KeyTime="0">
+                <DiscreteObjectKeyFrame.Value>
+                  <Visibility>Visible</Visibility>
+                </DiscreteObjectKeyFrame.Value>
+              </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+          </Storyboard>
+        </VisualState>
+      </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
+    <HyperlinkButton x:Name="loginButton" Content="Login" Style="{StaticResource simpleHyperlink}"
+      Visibility="Collapsed"
+      Click="OnLoginButtonClick"/>
+
+    <HyperlinkButton x:Name="submitButton" Content="Submit" Style="{StaticResource simpleHyperlink}"
+      Visibility="Collapsed"
+      Click="OnSubmitButtonClick"/>
+
+    <HyperlinkButton x:Name="logoutButton" Content="Logout" Style="{StaticResource simpleHyperlink}"
+      Visibility="Collapsed"
+      Click="OnLogoutButtonClick"/>
+
+    <ProgressBar x:Name="loginProgress" IsIndeterminate="True"
+      Opacity="0" Visibility="Collapsed"
+      HorizontalAlignment="Right" Width="108" BorderThickness="0" Margin="10">
+      <ProgressBar.Effect>
+        <BlurEffect Radius="10" />
+      </ProgressBar.Effect>
+    </ProgressBar>
+
+    <TextBlock x:Name="userLabel" Text="Hello Name!" Foreground="Black" Opacity="0"
+      VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,140,0"
+      FontFamily="Segoe UI" FontSize="14" FontWeight="Bold" />
+    <StackPanel x:Name="inputPanel" Orientation="Horizontal" Visibility="Visible"
+      VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,130,0">
+      <StackPanel.Clip>
+        <RectangleGeometry Rect="0,0,216,32" />
+      </StackPanel.Clip>
+      <ctl:WatermarkedTextBox x:Name="userNameTextBox" Width="100" Margin="4" WatermarkContent="User Name">
+        <ctl:WatermarkedTextBox.RenderTransform>
+          <CompositeTransform TranslateX="230"/>
+        </ctl:WatermarkedTextBox.RenderTransform>
+      </ctl:WatermarkedTextBox>
+      <PasswordBox x:Name="passwordBox" Width="100" Margin="4">
+        <PasswordBox.RenderTransform>
+          <CompositeTransform TranslateX="230"/>
+        </PasswordBox.RenderTransform>
+      </PasswordBox>
+    </StackPanel>
+  </Grid>
+</UserControl>

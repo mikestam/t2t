@@ -1,0 +1,40 @@
+﻿<navigation:Page x:Class="T2T.ParametarsView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Parametars Page">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" >
+                <GradientStop Color="#FFFCBA35" Offset="0.64300000667572021"/>
+                <GradientStop Color="#FFFEFC31" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" x:Name="ResourcesLinksStackPanel">
+            <HyperlinkButton x:Name="Link1"   NavigateUri="/Properties" TargetName="parametarsFrame"  Content="Properties" Style="{StaticResource LinkStyle}"/>
+        </StackPanel>
+
+        <Border x:Name="resourcesBorder" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <navigation:Frame x:Name="parametarsFrame"  Style="{StaticResource ContentFrameStyle}" 
+                              Source="/Properties" Navigated="parametarsFrame_Navigated_1"  NavigationFailed="parametarsFrame_NavigationFailed_1"
+                              Background="Yellow" Padding="10">
+                <navigation:Frame.UriMapper>
+                    <uriMapper:UriMapper>
+                        <uriMapper:UriMapping Uri="" MappedUri="/Parametars/Views/Properties.xaml"/>
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Parametars/Views/{pageName}.xaml"/>
+                    </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+            </navigation:Frame>
+        </Border>
+    </Grid>
+</navigation:Page>

@@ -1,0 +1,174 @@
+﻿<ResourceDictionary
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:ctl="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls">
+  <ResourceDictionary.MergedDictionaries>
+    <ResourceDictionary Source="Metro.xaml" />
+  </ResourceDictionary.MergedDictionaries>
+
+  <Style x:Key="screenGrid" TargetType="Grid">
+    <Setter Property="Background" Value="White" />
+  </Style>
+
+  <Style x:Key="windowBorder" TargetType="Border">
+    <Setter Property="Margin" Value="30" />
+    <Setter Property="Background" Value="White" />
+    <Setter Property="Effect">
+      <Setter.Value>
+        <DropShadowEffect Opacity=".4" BlurRadius="17" Color="Black" ShadowDepth="0" />
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style x:Key="appTitleStyle" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="60" />
+    <Setter Property="Foreground">
+      <Setter.Value>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+          <GradientStop Color="#FF2EBACC" Offset="0"/>
+          <GradientStop Color="#FF013C6C" Offset="1"/>
+        </LinearGradientBrush>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="Effect">
+      <Setter.Value>
+        <DropShadowEffect Color="Black" Opacity=".2" ShadowDepth="0" BlurRadius="6" />
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style x:Key="leftColor" TargetType="Rectangle">
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="Margin" Value="0,107,0,0" />
+    <Setter Property="Width" Value="24" />
+    <Setter Property="Height" Value="80" />
+    <Setter Property="Fill" Value="{StaticResource HighlightBrush}" />
+  </Style>
+
+  <Style x:Key="topColor" TargetType="Rectangle">
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="HorizontalAlignment" Value="Right" />
+    <Setter Property="Margin" Value="0,0,57,0" />
+    <Setter Property="Width" Value="129" />
+    <Setter Property="Height" Value="50" />
+    <Setter Property="Fill" Value="{StaticResource HighlightBrush}" />
+  </Style>
+
+  <Style x:Key="linkButtonStyle" TargetType="HyperlinkButton">
+    <Setter Property="FontFamily" Value="Segoe UI" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="Margin" Value="0,0,20,0" />
+  </Style>
+  
+  <Style x:Key="searchButtonStyle" TargetType="HyperlinkButton">
+    <Setter Property="Margin" Value="-22,0,20,0" />
+    <Setter Property="ContentTemplate">
+      <Setter.Value>
+        <DataTemplate>
+          <Grid Width="14" Height="16">
+            <Rectangle Fill="#FF767676" HorizontalAlignment="Right" Height="8" Margin="0,0,-0.164,-0.334" RadiusY="0.5" RadiusX="0.5" RenderTransformOrigin="0.5,0.5" Stroke="#FF767676" UseLayoutRounding="False" VerticalAlignment="Bottom" Width="4">
+              <Rectangle.RenderTransform>
+                <RotateTransform Angle="-45"/>
+              </Rectangle.RenderTransform>
+            </Rectangle>
+            <Ellipse Fill="White" Margin="0,0,1,3" Stroke="#FF767676"/>
+          </Grid>
+        </DataTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  
+  <Style x:Key="headingText" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="30" />
+  </Style>
+
+  <Style x:Key="listText" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="20" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+
+  <Style x:Key="listMainText" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI" />
+    <Setter Property="FontSize" Value="20" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="TextTrimming" Value="WordEllipsis" />
+  </Style>
+
+  <Style x:Key="listDetailText" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
+  <Style x:Key="listItemText" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI" />
+    <Setter Property="FontSize" Value="20" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+  </Style>
+
+  <Style x:Key="editMarker" TargetType="Rectangle">
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="Width" Value="6" />
+    <Setter Property="Margin" Value="8" />
+  </Style>
+  <Style x:Key="newMarker" TargetType="Rectangle" BasedOn="{StaticResource editMarker}">
+    <Setter Property="Fill" Value="#ACCF4D" />
+  </Style>
+  <Style x:Key="modifiedMarker" TargetType="Rectangle" BasedOn="{StaticResource editMarker}">
+    <Setter Property="Fill" Value="#F8DD2A" />
+  </Style>
+  <Style x:Key="errorMarker" TargetType="Rectangle" BasedOn="{StaticResource editMarker}">
+    <Setter Property="Fill" Value="#F23522" />
+  </Style>
+
+  <Style x:Key="label" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Margin" Value="0,4,4,2" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style x:Key="labelHeading" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="Margin" Value="0,4,4,2" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style x:Key="datePicker" TargetType="ctl:DatePicker">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Margin" Value="0,4,0,4" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="Width" Value="200" />
+  </Style>
+  <Style x:Key="halfTextBox" TargetType="TextBox">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Margin" Value="0,4,0,4" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="Width" Value="200" />
+  </Style>
+  <Style x:Key="fullTextBox" TargetType="TextBox">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Margin" Value="0,4,0,4" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+  <Style x:Key="textArea" TargetType="TextBox">
+    <Setter Property="FontFamily" Value="Segoe UI Light" />
+    <Setter Property="FontSize" Value="14" />
+    <Setter Property="Margin" Value="0,4,0,4" />
+    <Setter Property="Height" Value="120" />
+    <Setter Property="AcceptsReturn" Value="True" />
+    <Setter Property="TextWrapping" Value="Wrap" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+  </Style>
+
+</ResourceDictionary>

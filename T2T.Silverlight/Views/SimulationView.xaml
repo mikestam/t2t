@@ -1,0 +1,72 @@
+﻿<navigation:Page x:Class="T2T.SimulationView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Simulation Page">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Simulation" Style="{StaticResource HeaderTextStyle}" />
+
+        <RichTextBox Grid.Row="1" Margin="11,0,11,11" IsReadOnly="True" BorderThickness="0" FontSize="14">
+            <RichTextBox.Resources>
+                <!--I named this bug because I have to use the key.  The implicit style does not work in a richtextbox.-->
+                <Style TargetType="Ellipse" x:Key="bug">
+                    <Setter Property="Margin" Value="11,0,7,2" />
+                    <Setter Property="Fill" Value="Black" />
+                    <Setter Property="Height" Value="6" />
+                    <Setter Property="Width" Value="6" />
+                </Style>
+                <Style TargetType="Ellipse" x:Key="bugIndented" BasedOn="{StaticResource bug}">
+                    <Setter Property="Margin" Value="25,0,7,2" />
+                    <Setter Property="Fill" Value="DarkGray" />
+                </Style>
+            </RichTextBox.Resources>
+            <Paragraph FontSize="16" FontWeight="Bold" FontFamily="Arial">
+                t2t app - Non-Linear Navigation Test
+            </Paragraph>
+            <Paragraph>
+                <InlineUIContainer>
+                    <Ellipse Style="{StaticResource bug}"/>
+                </InlineUIContainer>
+                Simple shell handles all application navigation
+            </Paragraph>
+            <Paragraph>
+                <InlineUIContainer>
+                    <Ellipse Style="{StaticResource bug}"/>
+                </InlineUIContainer>
+                Applications are located in satellite assemblies
+            </Paragraph>
+            <Paragraph>
+                <InlineUIContainer>
+                    <Ellipse Style="{StaticResource bug}"/>
+                </InlineUIContainer>
+                Non-Linear Navigation enables forms to be navigated away from, then navigate back to the form
+            </Paragraph>
+            <Paragraph>
+                <InlineUIContainer>
+                    <Ellipse Style="{StaticResource bug}"/>
+                </InlineUIContainer>
+                Forms navigated away from remain active and can continue to processing data while other forms are being used
+            </Paragraph>
+            <Paragraph>
+                <InlineUIContainer>
+                    <Ellipse Style="{StaticResource bugIndented}"/>
+                </InlineUIContainer>
+                Notice the elapsed seconds counter continues once started, even after revisiting this About page
+            </Paragraph>
+        </RichTextBox>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="11">
+            <TextBlock Text="Elapsed seconds: " FontSize="16" />
+            <TextBlock x:Name="ElapsedTime" FontSize="16" />
+        </StackPanel>
+    </Grid>
+</navigation:Page>

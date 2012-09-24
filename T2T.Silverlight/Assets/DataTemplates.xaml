@@ -1,0 +1,230 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+    
+    <DataTemplate x:Key="ReadOnlyPlyDataTemplate">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+               <TextBlock Text="Ply(" FontWeight="Bold"  Foreground="White" FontSize="14"/>
+                <TextBlock Text="{Binding MaterialDefinitionID, Mode=OneWay}" FontWeight="Bold"  Foreground="White" FontSize="14"/>
+                <TextBlock Text=") - " FontWeight="Bold"  Foreground="White" FontSize="14"/>
+                <TextBlock Text="{Binding Name, Mode=OneWay}" FontWeight="Bold"  Foreground="White" FontSize="14"/>
+            </StackPanel>
+
+            <TextBlock Text="{Binding Description, Mode=OneWay}" FontWeight="Bold"  Foreground="Gray" FontSize="12"/>
+
+          
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ReadOnlyCarcassDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Carcass" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ReadOnlyInerlinerDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Inerliners" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ReadOnlyLankDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Lanks" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ReadOnlyProtectorDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Protectors" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ReadOnlyRawTyreDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Row Tyre" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ReadOnlyTyreDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Tyre" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="EditPlyDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Plies" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EditCarcassDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Carcass" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EditInerlinerDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Inerliners" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EditLankDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Lanks" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EditProtectorDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Protectors" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EditRawTyreDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Row Tyre" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="EditTyreDataTemplate">
+        <StackPanel>
+            <TextBlock Text="Tyre" />
+            <toolkit:DataField Label="Material Definition ID">
+                <TextBox IsReadOnly="True" 
+                              Text="{Binding MaterialDefinitionID, Mode=OneWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Name">
+                <TextBox Text="{Binding Name, Mode=TwoWay}" />
+            </toolkit:DataField>
+            <toolkit:DataField Label="Description">
+                <TextBox Text="{Binding Description, Mode=TwoWay}" />
+            </toolkit:DataField>
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

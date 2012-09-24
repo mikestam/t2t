@@ -1,0 +1,49 @@
+﻿<navigation:Page x:Class="T2T.Views.Resources" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:uriMapper="clr-namespace:System.Windows.Navigation;assembly=System.Windows.Controls.Navigation"
+           xmlns:res="clr-namespace:T2T.Resources.Views"
+           xmlns:f="http://www.milanstamenovic.com/framework"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Resources2 Page"
+           Style="{StaticResource PageStyle}" >
+         
+        <Grid x:Name="LayoutRoot">
+        <!--<Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" >
+                <GradientStop Color="#FFFCBA35" Offset="0.64300000667572021"/>
+                <GradientStop Color="#FFFEFC31" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <res:ResourcesNavigationBar x:Name="ResourcesLinksStackPanel" />
+
+        <!--<Border x:Name="resourcesBorder" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+            <navigation:Frame x:Name="resourcesFrame"  Style="{StaticResource SubContentFrameStyle}" 
+                              Source="/Materials" Navigated="resourcesFrame_Navigated" NavigationFailed="resourcesFrame_NavigationFailed">
+                <navigation:Frame.UriMapper>
+                    <uriMapper:UriMapper>
+                        <uriMapper:UriMapping Uri="" MappedUri="/Resources/Views/MaterialsBrowserView.xaml"/>
+                        
+                        <uriMapper:UriMapping Uri="/{pageName}" MappedUri="/Resources/Views/{pageName}BrowserView.xaml"/>
+                    </uriMapper:UriMapper>
+                </navigation:Frame.UriMapper>
+          
+            </navigation:Frame>
+        </Border>-->
+
+        <!--<navigation:Frame.ContentLoader>
+                    <f:NavigationContentLoader/>
+                </navigation:Frame.ContentLoader>-->
+
+    </Grid>
+</navigation:Page>
+

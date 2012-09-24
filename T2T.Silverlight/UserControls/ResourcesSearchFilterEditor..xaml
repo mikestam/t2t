@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="T2T.ResourcesSearchFilterEditor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+    
+    <Grid >
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition />
+            <ColumnDefinition Width="25" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions >
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="tbCaption" Text="Search by keyword" />
+        <TextBox x:Name="txtKeyword" Grid.Row="1" TextChanged="txtKeyword_TextChanged"
+                 Text="{Binding Keyword, NotifyOnValidationError=True,Mode=TwoWay}" />
+        <TextBlock x:Name="tbKeywordLabel" Grid.Row="1" Visibility="Collapsed"  />
+        <ToggleButton x:Name="applyFilterButton" Width="20" Height="20" Click="applyFilterButton_Click" Grid.Row="1" Grid.Column="1"
+                      IsEnabled="False"  Style="{StaticResource applyCancelToggleBtnStyle}" />
+    </Grid>
+</UserControl>

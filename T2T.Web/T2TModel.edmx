@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="T2TModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="T2TModelStoreContainer">
+          <EntitySet Name="EquipmentClasses" EntityType="T2TModel.Store.EquipmentClasses" store:Type="Tables" Schema="Equipment" />
+          <EntitySet Name="EquipmentElementLevels" EntityType="T2TModel.Store.EquipmentElementLevels" store:Type="Tables" Schema="Equipment" />
+          <EntitySet Name="EquipmentHmiData" EntityType="T2TModel.Store.EquipmentHmiData" store:Type="Tables" store:Schema="Equipment" store:Name="EquipmentHmiData">
+            <DefiningQuery>SELECT 
+      [EquipmentHmiData].[EquipmentID] AS [EquipmentID], 
+      [EquipmentHmiData].[Tags] AS [Tags], 
+      [EquipmentHmiData].[Screens] AS [Screens], 
+      [EquipmentHmiData].[Alarms] AS [Alarms]
+      FROM [Equipment].[EquipmentHmiData] AS [EquipmentHmiData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Equipments" EntityType="T2TModel.Store.Equipments" store:Type="Tables" Schema="Equipment" />
+          <EntitySet Name="BillOfMaterials" EntityType="T2TModel.Store.BillOfMaterials" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="Carcasses" EntityType="T2TModel.Store.Carcasses" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="Inerliners" EntityType="T2TModel.Store.Inerliners" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="Lanks" EntityType="T2TModel.Store.Lanks" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="MaterialClasses" EntityType="T2TModel.Store.MaterialClasses" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="MaterialDefinitions" EntityType="T2TModel.Store.MaterialDefinitions" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="MaterialLots" EntityType="T2TModel.Store.MaterialLots" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="MaterialLotStatuses" EntityType="T2TModel.Store.MaterialLotStatuses" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="MaterialLotTrackings" EntityType="T2TModel.Store.MaterialLotTrackings" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="MaterialTypes" EntityType="T2TModel.Store.MaterialTypes" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="Plies" EntityType="T2TModel.Store.Plies" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="Protectors" EntityType="T2TModel.Store.Protectors" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="RawTyres" EntityType="T2TModel.Store.RawTyres" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="SemiFinishedMaterialInventory" EntityType="T2TModel.Store.SemiFinishedMaterialInventory" store:Type="Tables" Schema="Material" />
+          <EntitySet Name="Tyres" EntityType="T2TModel.Store.Tyres" store:Type="Tables" Schema="Material" />
+          <AssociationSet Name="FK_BillOfMaterials_MaterialAssembly" Association="T2TModel.Store.FK_BillOfMaterials_MaterialAssembly">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="BillOfMaterials" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillOfMaterials_MaterialComponent" Association="T2TModel.Store.FK_BillOfMaterials_MaterialComponent">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="BillOfMaterials" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Carcasses_MaterialDefinitions" Association="T2TModel.Store.FK_Carcasses_MaterialDefinitions">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="Carcasses" EntitySet="Carcasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EquipmentHmiData_Equipments" Association="T2TModel.Store.FK_EquipmentHmiData_Equipments">
+            <End Role="Equipments" EntitySet="Equipments" />
+            <End Role="EquipmentHmiData" EntitySet="EquipmentHmiData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inerliners_MaterialDefinitions" Association="T2TModel.Store.FK_Inerliners_MaterialDefinitions">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="Inerliners" EntitySet="Inerliners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lanks_MaterialDefinitions" Association="T2TModel.Store.FK_Lanks_MaterialDefinitions">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="Lanks" EntitySet="Lanks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialClasses_MaterialClasses" Association="T2TModel.Store.FK_MaterialClasses_MaterialClasses">
+            <End Role="MaterialClasses" EntitySet="MaterialClasses" />
+            <End Role="MaterialClasses1" EntitySet="MaterialClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialClasses_MaterialTypes" Association="T2TModel.Store.FK_MaterialClasses_MaterialTypes">
+            <End Role="MaterialTypes" EntitySet="MaterialTypes" />
+            <End Role="MaterialClasses" EntitySet="MaterialClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialDefinitions_MaterialClasses" Association="T2TModel.Store.FK_MaterialDefinitions_MaterialClasses">
+            <End Role="MaterialClasses" EntitySet="MaterialClasses" />
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialLots_MaterialDefinitions" Association="T2TModel.Store.FK_MaterialLots_MaterialDefinitions">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="MaterialLots" EntitySet="MaterialLots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialLots_MaterialLotStatuses" Association="T2TModel.Store.FK_MaterialLots_MaterialLotStatuses">
+            <End Role="MaterialLotStatuses" EntitySet="MaterialLotStatuses" />
+            <End Role="MaterialLots" EntitySet="MaterialLots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Plies_MaterialDefinitions" Association="T2TModel.Store.FK_Plies_MaterialDefinitions">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="Plies" EntitySet="Plies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Protectors_MaterialDefinitions" Association="T2TModel.Store.FK_Protectors_MaterialDefinitions">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="Protectors" EntitySet="Protectors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RowTyre_MaterialDefinitions" Association="T2TModel.Store.FK_RowTyre_MaterialDefinitions">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="RawTyres" EntitySet="RawTyres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tyres_MaterialDefinitions" Association="T2TModel.Store.FK_Tyres_MaterialDefinitions">
+            <End Role="MaterialDefinitions" EntitySet="MaterialDefinitions" />
+            <End Role="Tyres" EntitySet="Tyres" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EquipmentClasses">
+          <Key>
+            <PropertyRef Name="EquipmentClassID" />
+          </Key>
+          <Property Name="EquipmentClassID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="EquipmentElementLevelID" Type="int" />
+        </EntityType>
+        <EntityType Name="EquipmentElementLevels">
+          <Key>
+            <PropertyRef Name="EquipmentElementLevelID" />
+          </Key>
+          <Property Name="EquipmentElementLevelID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EquipmentElementLevelName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'T2T.Equipment.EquipmentHmiData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="EquipmentHmiData">
+          <Key>
+            <PropertyRef Name="EquipmentID" />
+          </Key>
+          <Property Name="EquipmentID" Type="int" Nullable="false" />
+          <Property Name="Tags" Type="xml" />
+          <Property Name="Screens" Type="xml" />
+          <Property Name="Alarms" Type="xml" />
+        </EntityType>
+        <EntityType Name="Equipments">
+          <Key>
+            <PropertyRef Name="EquipmentID" />
+          </Key>
+          <Property Name="EquipmentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="15" />
+          <Property Name="Path" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="EquipmentClassID" Type="int" />
+          <Property Name="ParentEquipment" Type="int" />
+        </EntityType>
+        <EntityType Name="BillOfMaterials">
+          <Key>
+            <PropertyRef Name="BillOfMaterialsID" />
+          </Key>
+          <Property Name="BillOfMaterialsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AssemblyID" Type="int" />
+          <Property Name="ComponentID" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="UnitMeasureCode" Type="nchar" Nullable="false" MaxLength="3" />
+          <Property Name="BOMLevel" Type="smallint" Nullable="false" />
+          <Property Name="PerAssemblyQty" Type="decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carcasses">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inerliners">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" />
+          <Property Name="Width" Type="int" />
+          <Property Name="Length" Type="int" />
+          <Property Name="Thickness" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Weight" Type="int" />
+        </EntityType>
+        <EntityType Name="Lanks">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" />
+          <Property Name="LankTT" Type="nchar" MaxLength="10" />
+          <Property Name="Perimeter" Type="int" />
+          <Property Name="Diameter" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialClasses">
+          <Key>
+            <PropertyRef Name="MaterialClassID" />
+          </Key>
+          <Property Name="MaterialClassID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MaterialTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="ParentClassID" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialDefinitions">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="MaterialClassID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialLots">
+          <Key>
+            <PropertyRef Name="MaterialLotID" />
+          </Key>
+          <Property Name="MaterialLotID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LotID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" />
+          <Property Name="MaterialLotStatusID" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="decimal" Nullable="false" Scale="8" />
+          <Property Name="QuantityUnitOfMeasure" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="EquipmentID" Type="int" />
+          <Property Name="ValidFrom" Type="datetime" />
+          <Property Name="ValidTill" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MaterialLotStatuses">
+          <Key>
+            <PropertyRef Name="LotStatusID" />
+          </Key>
+          <Property Name="LotStatusID" Type="int" Nullable="false" />
+          <Property Name="LotStatus" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="SortOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialLotTrackings">
+          <Key>
+            <PropertyRef Name="TrackingID" />
+          </Key>
+          <Property Name="TrackingID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MaterialLotID" Type="int" Nullable="false" />
+          <Property Name="Operation" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+          <Property Name="Data" Type="xml" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="EquipmentID" Type="int" />
+          <Property Name="TrackingDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MaterialTypes">
+          <Key>
+            <PropertyRef Name="MaterialTypeID" />
+          </Key>
+          <Property Name="MaterialTypeID" Type="tinyint" Nullable="false" />
+          <Property Name="TypeID" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Plies">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" />
+          <Property Name="Width" Type="int" />
+          <Property Name="Lenght" Type="int" />
+          <Property Name="Angle" Type="decimal" Precision="8" Scale="2" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Number" Type="tinyint" />
+          <Property Name="Symbol" Type="nvarchar" MaxLength="4" />
+        </EntityType>
+        <EntityType Name="Protectors">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" />
+          <Property Name="Width" Type="int" />
+          <Property Name="Length" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="SirinaRamena" Type="int" />
+          <Property Name="ProfileCode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RawTyres">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" />
+          <Property Name="CAI" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="InternalCodeText" Type="nvarchar" MaxLength="10" />
+          <Property Name="InternalCode" Type="int" />
+          <Property Name="Dimension" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="SemiFinishedMaterialInventory">
+          <Key>
+            <PropertyRef Name="InternalCode" />
+          </Key>
+          <Property Name="InternalCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tyres">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Name="MaterialDefinitionID" Type="int" Nullable="false" />
+          <Property Name="CAI" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="InternalCodeText" Type="nvarchar" MaxLength="10" />
+          <Property Name="InternalCode" Type="int" />
+          <Property Name="Dezen" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dimension" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <Association Name="FK_BillOfMaterials_MaterialAssembly">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="0..1" />
+          <End Role="BillOfMaterials" Type="T2TModel.Store.BillOfMaterials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="BillOfMaterials">
+              <PropertyRef Name="AssemblyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillOfMaterials_MaterialComponent">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="BillOfMaterials" Type="T2TModel.Store.BillOfMaterials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="BillOfMaterials">
+              <PropertyRef Name="ComponentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Carcasses_MaterialDefinitions">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="Carcasses" Type="T2TModel.Store.Carcasses" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="Carcasses">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EquipmentHmiData_Equipments">
+          <End Role="Equipments" Type="T2TModel.Store.Equipments" Multiplicity="1" />
+          <End Role="EquipmentHmiData" Type="T2TModel.Store.EquipmentHmiData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Equipments">
+              <PropertyRef Name="EquipmentID" />
+            </Principal>
+            <Dependent Role="EquipmentHmiData">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Inerliners_MaterialDefinitions">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="Inerliners" Type="T2TModel.Store.Inerliners" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="Inerliners">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lanks_MaterialDefinitions">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="Lanks" Type="T2TModel.Store.Lanks" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="Lanks">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialClasses_MaterialClasses">
+          <End Role="MaterialClasses" Type="T2TModel.Store.MaterialClasses" Multiplicity="0..1" />
+          <End Role="MaterialClasses1" Type="T2TModel.Store.MaterialClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialClasses">
+              <PropertyRef Name="MaterialClassID" />
+            </Principal>
+            <Dependent Role="MaterialClasses1">
+              <PropertyRef Name="ParentClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialClasses_MaterialTypes">
+          <End Role="MaterialTypes" Type="T2TModel.Store.MaterialTypes" Multiplicity="1" />
+          <End Role="MaterialClasses" Type="T2TModel.Store.MaterialClasses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialTypes">
+              <PropertyRef Name="MaterialTypeID" />
+            </Principal>
+            <Dependent Role="MaterialClasses">
+              <PropertyRef Name="MaterialTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialDefinitions_MaterialClasses">
+          <End Role="MaterialClasses" Type="T2TModel.Store.MaterialClasses" Multiplicity="1" />
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialClasses">
+              <PropertyRef Name="MaterialClassID" />
+            </Principal>
+            <Dependent Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialLots_MaterialDefinitions">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="MaterialLots" Type="T2TModel.Store.MaterialLots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="MaterialLots">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialLots_MaterialLotStatuses">
+          <End Role="MaterialLotStatuses" Type="T2TModel.Store.MaterialLotStatuses" Multiplicity="1" />
+          <End Role="MaterialLots" Type="T2TModel.Store.MaterialLots" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialLotStatuses">
+              <PropertyRef Name="LotStatusID" />
+            </Principal>
+            <Dependent Role="MaterialLots">
+              <PropertyRef Name="MaterialLotStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Plies_MaterialDefinitions">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="Plies" Type="T2TModel.Store.Plies" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="Plies">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Protectors_MaterialDefinitions">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="Protectors" Type="T2TModel.Store.Protectors" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="Protectors">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RowTyre_MaterialDefinitions">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="RawTyres" Type="T2TModel.Store.RawTyres" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="RawTyres">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tyres_MaterialDefinitions">
+          <End Role="MaterialDefinitions" Type="T2TModel.Store.MaterialDefinitions" Multiplicity="1" />
+          <End Role="Tyres" Type="T2TModel.Store.Tyres" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinitions">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="Tyres">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="uspIncSFStock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Material">
+          <Parameter Name="ik" Type="nvarchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="T2TModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="T2TEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BillOfMaterials" EntityType="T2TModel.BillOfMaterial" />
+          <EntitySet Name="MaterialClasses" EntityType="T2TModel.MaterialClass" />
+          <EntitySet Name="MaterialDefinitions" EntityType="T2TModel.MaterialDefinition" />
+          <EntitySet Name="MaterialLots" EntityType="T2TModel.MaterialLot" />
+          <EntitySet Name="MaterialLotStatuses" EntityType="T2TModel.MaterialLotStatus" />
+          <EntitySet Name="MaterialTypes" EntityType="T2TModel.MaterialType" />
+          <AssociationSet Name="FK_BillOfMaterials_MaterialAssembly" Association="T2TModel.FK_BillOfMaterials_MaterialAssembly">
+            <End Role="MaterialDefinition" EntitySet="MaterialDefinitions" />
+            <End Role="BillOfMaterial" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BillOfMaterials_MaterialComponent" Association="T2TModel.FK_BillOfMaterials_MaterialComponent">
+            <End Role="MaterialDefinition" EntitySet="MaterialDefinitions" />
+            <End Role="BillOfMaterial" EntitySet="BillOfMaterials" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialClasses_MaterialClasses" Association="T2TModel.FK_MaterialClasses_MaterialClasses">
+            <End Role="MaterialClass" EntitySet="MaterialClasses" />
+            <End Role="MaterialClass1" EntitySet="MaterialClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialClasses_MaterialTypes" Association="T2TModel.FK_MaterialClasses_MaterialTypes">
+            <End Role="MaterialType" EntitySet="MaterialTypes" />
+            <End Role="MaterialClass" EntitySet="MaterialClasses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialDefinitions_MaterialClasses" Association="T2TModel.FK_MaterialDefinitions_MaterialClasses">
+            <End Role="MaterialClass" EntitySet="MaterialClasses" />
+            <End Role="MaterialDefinition" EntitySet="MaterialDefinitions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialLots_MaterialDefinitions" Association="T2TModel.FK_MaterialLots_MaterialDefinitions">
+            <End Role="MaterialDefinition" EntitySet="MaterialDefinitions" />
+            <End Role="MaterialLot" EntitySet="MaterialLots" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialLots_MaterialLotStatuses" Association="T2TModel.FK_MaterialLots_MaterialLotStatuses">
+            <End Role="MaterialLotStatus" EntitySet="MaterialLotStatuses" />
+            <End Role="MaterialLot" EntitySet="MaterialLots" />
+          </AssociationSet>
+          <EntitySet Name="MaterialLotTrackings" EntityType="T2TModel.MaterialLotTracking" />
+          <EntitySet Name="SemiFinishedMaterialInventories" EntityType="T2TModel.SemiFinishedMaterialInventory" />
+          <EntitySet Name="EquipmentClasses" EntityType="T2TModel.EquipmentClass" />
+          <EntitySet Name="EquipmentElementLevels" EntityType="T2TModel.EquipmentElementLevel" />
+          <EntitySet Name="EquipmentHmiDatas" EntityType="T2TModel.EquipmentHmiData" />
+          <EntitySet Name="Equipments" EntityType="T2TModel.Equipment" />
+          <AssociationSet Name="FK_EquipmentHmiData_Equipments" Association="T2TModel.FK_EquipmentHmiData_Equipments">
+            <End Role="Equipment" EntitySet="Equipments" />
+            <End Role="EquipmentHmiData" EntitySet="EquipmentHmiDatas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="BillOfMaterial">
+          <Key>
+            <PropertyRef Name="BillOfMaterialsID" />
+          </Key>
+          <Property Type="Int32" Name="BillOfMaterialsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="AssemblyID" />
+          <Property Type="Int32" Name="ComponentID" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="String" Name="UnitMeasureCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="true" />
+          <Property Type="Int16" Name="BOMLevel" Nullable="false" />
+          <Property Type="Decimal" Name="PerAssemblyQty" Nullable="false" Precision="8" Scale="2" />
+          <Property Type="DateTime" Name="ModifiedDate" Nullable="false" />
+          <NavigationProperty Name="MaterialDefinition" Relationship="T2TModel.FK_BillOfMaterials_MaterialAssembly" FromRole="BillOfMaterial" ToRole="MaterialDefinition" />
+          <NavigationProperty Name="MaterialDefinition1" Relationship="T2TModel.FK_BillOfMaterials_MaterialComponent" FromRole="BillOfMaterial" ToRole="MaterialDefinition" />
+        </EntityType>
+        <EntityType Name="Inerliner" BaseType="T2TModel.MaterialDefinition">
+          <Property Type="Int32" Name="Width" />
+          <Property Type="Int32" Name="Length" />
+          <Property Type="Decimal" Name="Thickness" Precision="8" Scale="2" />
+          <Property Type="Int32" Name="Weight" />
+        </EntityType>
+        <EntityType Name="Lank" BaseType="T2TModel.MaterialDefinition">
+          <Property Type="String" Name="LankTT" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Int32" Name="Perimeter" />
+          <Property Type="Int32" Name="Diameter" />
+        </EntityType>
+        <EntityType Name="MaterialClass">
+          <Key>
+            <PropertyRef Name="MaterialClassID" />
+          </Key>
+          <Property Type="Int32" Name="MaterialClassID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="MaterialTypeID" Nullable="false" />
+          <Property Type="Int32" Name="ParentClassID" />
+          <NavigationProperty Name="ChildClasses" Relationship="T2TModel.FK_MaterialClasses_MaterialClasses" FromRole="MaterialClass" ToRole="MaterialClass1" />
+          <NavigationProperty Name="ParentClass" Relationship="T2TModel.FK_MaterialClasses_MaterialClasses" FromRole="MaterialClass1" ToRole="MaterialClass" />
+          <NavigationProperty Name="MaterialType" Relationship="T2TModel.FK_MaterialClasses_MaterialTypes" FromRole="MaterialClass" ToRole="MaterialType" />
+          <NavigationProperty Name="MaterialDefinitions" Relationship="T2TModel.FK_MaterialDefinitions_MaterialClasses" FromRole="MaterialClass" ToRole="MaterialDefinition" />
+        </EntityType>
+        <EntityType Name="MaterialDefinition" Abstract="true">
+          <Key>
+            <PropertyRef Name="MaterialDefinitionID" />
+          </Key>
+          <Property Type="Int32" Name="MaterialDefinitionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="MaterialClassID" Nullable="false" />
+          <NavigationProperty Name="BillOfMaterials" Relationship="T2TModel.FK_BillOfMaterials_MaterialAssembly" FromRole="MaterialDefinition" ToRole="BillOfMaterial" />
+          <NavigationProperty Name="BillOfMaterials1" Relationship="T2TModel.FK_BillOfMaterials_MaterialComponent" FromRole="MaterialDefinition" ToRole="BillOfMaterial" />
+          <NavigationProperty Name="MaterialClass" Relationship="T2TModel.FK_MaterialDefinitions_MaterialClasses" FromRole="MaterialDefinition" ToRole="MaterialClass" />
+          <NavigationProperty Name="MaterialLots" Relationship="T2TModel.FK_MaterialLots_MaterialDefinitions" FromRole="MaterialDefinition" ToRole="MaterialLot" />
+        </EntityType>
+        <EntityType Name="MaterialLot">
+          <Key>
+            <PropertyRef Name="MaterialLotID" />
+          </Key>
+          <Property Type="Int32" Name="MaterialLotID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LotID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="MaterialDefinitionID" Nullable="false" />
+          <Property Type="Int32" Name="MaterialLotStatusID" Nullable="false" />
+          <Property Type="Decimal" Name="Quantity" Nullable="false" Precision="18" Scale="8" />
+          <Property Type="String" Name="QuantityUnitOfMeasure" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="CreationDate" Nullable="false" />
+          <Property Type="Int32" Name="UserID" />
+          <Property Type="Int32" Name="EquipmentID" />
+          <Property Type="DateTime" Name="ValidFrom" />
+          <Property Type="DateTime" Name="ValidTill" />
+          <NavigationProperty Name="MaterialDefinition" Relationship="T2TModel.FK_MaterialLots_MaterialDefinitions" FromRole="MaterialLot" ToRole="MaterialDefinition" />
+          <NavigationProperty Name="MaterialLotStatus" Relationship="T2TModel.FK_MaterialLots_MaterialLotStatuses" FromRole="MaterialLot" ToRole="MaterialLotStatus" />
+        </EntityType>
+        <EntityType Name="MaterialLotStatus">
+          <Key>
+            <PropertyRef Name="LotStatusID" />
+          </Key>
+          <Property Type="Int32" Name="LotStatusID" Nullable="false" />
+          <Property Type="String" Name="LotStatus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SortOrder" Nullable="false" />
+          <NavigationProperty Name="MaterialLots" Relationship="T2TModel.FK_MaterialLots_MaterialLotStatuses" FromRole="MaterialLotStatus" ToRole="MaterialLot" />
+        </EntityType>
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="MaterialTypeID" />
+          </Key>
+          <Property Type="Byte" Name="MaterialTypeID" Nullable="false" />
+          <Property Type="String" Name="TypeID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MaterialClasses" Relationship="T2TModel.FK_MaterialClasses_MaterialTypes" FromRole="MaterialType" ToRole="MaterialClass" />
+        </EntityType>
+        <EntityType Name="Ply" BaseType="T2TModel.MaterialDefinition">
+          <Property Type="Int32" Name="Width" />
+          <Property Type="Int32" Name="Lenght" />
+          <Property Type="Decimal" Name="Angle" Precision="8" Scale="2" />
+          <Property Type="Int32" Name="Weight" />
+          <Property Type="Byte" Name="Number" />
+          <Property Type="String" Name="Symbol" MaxLength="4" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Protector" BaseType="T2TModel.MaterialDefinition">
+          <Property Type="Int32" Name="Width" />
+          <Property Type="Int32" Name="Length" />
+          <Property Type="Int32" Name="Weight" />
+          <Property Type="Int32" Name="SirinaRamena" />
+          <Property Type="String" Name="ProfileCode" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RawTyre" BaseType="T2TModel.MaterialDefinition">
+          <Property Type="String" Name="CAI" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InternalCodeText" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="InternalCode" />
+          <Property Type="String" Name="Dimension" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Active" />
+        </EntityType>
+        <EntityType Name="Tyre" BaseType="T2TModel.MaterialDefinition">
+          <Property Type="String" Name="CAI" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="InternalCodeText" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="InternalCode" />
+          <Property Type="String" Name="Dezen" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Dimension" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Active" />
+        </EntityType>
+        <Association Name="FK_BillOfMaterials_MaterialAssembly">
+          <End Type="T2TModel.MaterialDefinition" Role="MaterialDefinition" Multiplicity="0..1" />
+          <End Type="T2TModel.BillOfMaterial" Role="BillOfMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinition">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="BillOfMaterial">
+              <PropertyRef Name="AssemblyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BillOfMaterials_MaterialComponent">
+          <End Type="T2TModel.MaterialDefinition" Role="MaterialDefinition" Multiplicity="1" />
+          <End Type="T2TModel.BillOfMaterial" Role="BillOfMaterial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinition">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="BillOfMaterial">
+              <PropertyRef Name="ComponentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialClasses_MaterialClasses">
+          <End Type="T2TModel.MaterialClass" Role="MaterialClass" Multiplicity="0..1" />
+          <End Type="T2TModel.MaterialClass" Role="MaterialClass1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialClass">
+              <PropertyRef Name="MaterialClassID" />
+            </Principal>
+            <Dependent Role="MaterialClass1">
+              <PropertyRef Name="ParentClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialClasses_MaterialTypes">
+          <End Type="T2TModel.MaterialType" Role="MaterialType" Multiplicity="1" />
+          <End Type="T2TModel.MaterialClass" Role="MaterialClass" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="MaterialTypeID" />
+            </Principal>
+            <Dependent Role="MaterialClass">
+              <PropertyRef Name="MaterialTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialDefinitions_MaterialClasses">
+          <End Type="T2TModel.MaterialClass" Role="MaterialClass" Multiplicity="1" />
+          <End Type="T2TModel.MaterialDefinition" Role="MaterialDefinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialClass">
+              <PropertyRef Name="MaterialClassID" />
+            </Principal>
+            <Dependent Role="MaterialDefinition">
+              <PropertyRef Name="MaterialClassID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialLots_MaterialDefinitions">
+          <End Type="T2TModel.MaterialDefinition" Role="MaterialDefinition" Multiplicity="1" />
+          <End Type="T2TModel.MaterialLot" Role="MaterialLot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialDefinition">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Principal>
+            <Dependent Role="MaterialLot">
+              <PropertyRef Name="MaterialDefinitionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialLots_MaterialLotStatuses">
+          <End Type="T2TModel.MaterialLotStatus" Role="MaterialLotStatus" Multiplicity="1" />
+          <End Type="T2TModel.MaterialLot" Role="MaterialLot" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialLotStatus">
+              <PropertyRef Name="LotStatusID" />
+            </Principal>
+            <Dependent Role="MaterialLot">
+              <PropertyRef Name="MaterialLotStatusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Carcass" BaseType="T2TModel.MaterialDefinition">
+        </EntityType>
+        <EntityType Name="MaterialLotTracking">
+          <Key>
+            <PropertyRef Name="TrackingID" />
+          </Key>
+          <Property Type="Int32" Name="TrackingID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="MaterialLotID" Nullable="false" />
+          <Property Type="String" Name="Operation" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Data" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UserID" />
+          <Property Type="Int32" Name="EquipmentID" />
+          <Property Type="DateTime" Name="TrackingDate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SemiFinishedMaterialInventory">
+          <Key>
+            <PropertyRef Name="InternalCode" />
+          </Key>
+          <Property Type="String" Name="InternalCode" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Count" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EquipmentClass">
+          <Key>
+            <PropertyRef Name="EquipmentClassID" />
+          </Key>
+          <Property Type="Int32" Name="EquipmentClassID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EquipmentElementLevelID" />
+        </EntityType>
+        <EntityType Name="EquipmentElementLevel">
+          <Key>
+            <PropertyRef Name="EquipmentElementLevelID" />
+          </Key>
+          <Property Type="Int32" Name="EquipmentElementLevelID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="EquipmentElementLevelName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="EquipmentHmiData">
+          <Key>
+            <PropertyRef Name="EquipmentID" />
+          </Key>
+          <Property Type="Int32" Name="EquipmentID" Nullable="false" />
+          <Property Type="String" Name="Tags" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Screens" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Alarms" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Equipment" Relationship="T2TModel.FK_EquipmentHmiData_Equipments" FromRole="EquipmentHmiData" ToRole="Equipment" />
+        </EntityType>
+        <EntityType Name="Equipment">
+          <Key>
+            <PropertyRef Name="EquipmentID" />
+          </Key>
+          <Property Type="Int32" Name="EquipmentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShortName" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Path" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EquipmentClassID" />
+          <Property Type="Int32" Name="ParentEquipment" />
+          <NavigationProperty Name="EquipmentHmiData" Relationship="T2TModel.FK_EquipmentHmiData_Equipments" FromRole="Equipment" ToRole="EquipmentHmiData" />
+        </EntityType>
+        <Association Name="FK_EquipmentHmiData_Equipments">
+          <End Type="T2TModel.Equipment" Role="Equipment" Multiplicity="1" />
+          <End Type="T2TModel.EquipmentHmiData" Role="EquipmentHmiData" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Equipment">
+              <PropertyRef Name="EquipmentID" />
+            </Principal>
+            <Dependent Role="EquipmentHmiData">
+              <PropertyRef Name="EquipmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="T2TModelStoreContainer" CdmEntityContainer="T2TEntities">
+          <EntitySetMapping Name="BillOfMaterials">
+            <EntityTypeMapping TypeName="T2TModel.BillOfMaterial">
+              <MappingFragment StoreEntitySet="BillOfMaterials">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="PerAssemblyQty" ColumnName="PerAssemblyQty" />
+                <ScalarProperty Name="BOMLevel" ColumnName="BOMLevel" />
+                <ScalarProperty Name="UnitMeasureCode" ColumnName="UnitMeasureCode" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+                <ScalarProperty Name="AssemblyID" ColumnName="AssemblyID" />
+                <ScalarProperty Name="BillOfMaterialsID" ColumnName="BillOfMaterialsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialClasses">
+            <EntityTypeMapping TypeName="T2TModel.MaterialClass">
+              <MappingFragment StoreEntitySet="MaterialClasses">
+                <ScalarProperty Name="ParentClassID" ColumnName="ParentClassID" />
+                <ScalarProperty Name="MaterialTypeID" ColumnName="MaterialTypeID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MaterialClassID" ColumnName="MaterialClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialDefinitions">
+            <EntityTypeMapping TypeName="IsTypeOf(T2TModel.MaterialDefinition)">
+              <MappingFragment StoreEntitySet="MaterialDefinitions">
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+                <ScalarProperty Name="MaterialClassID" ColumnName="MaterialClassID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(T2TModel.Inerliner)">
+              <MappingFragment StoreEntitySet="Inerliners">
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Thickness" ColumnName="Thickness" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(T2TModel.Lank)">
+              <MappingFragment StoreEntitySet="Lanks">
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+                <ScalarProperty Name="LankTT" ColumnName="LankTT" />
+                <ScalarProperty Name="Perimeter" ColumnName="Perimeter" />
+                <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(T2TModel.Ply)">
+              <MappingFragment StoreEntitySet="Plies">
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Lenght" ColumnName="Lenght" />
+                <ScalarProperty Name="Angle" ColumnName="Angle" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(T2TModel.Protector)">
+              <MappingFragment StoreEntitySet="Protectors">
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="SirinaRamena" ColumnName="SirinaRamena" />
+                <ScalarProperty Name="ProfileCode" ColumnName="ProfileCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(T2TModel.Tyre)">
+              <MappingFragment StoreEntitySet="Tyres">
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+                <ScalarProperty Name="CAI" ColumnName="CAI" />
+                <ScalarProperty Name="InternalCodeText" ColumnName="InternalCodeText" />
+                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
+                <ScalarProperty Name="Dezen" ColumnName="Dezen" />
+                <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(T2TModel.RawTyre)">
+              <MappingFragment StoreEntitySet="RawTyres">
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+                <ScalarProperty Name="CAI" ColumnName="CAI" />
+                <ScalarProperty Name="InternalCodeText" ColumnName="InternalCodeText" />
+                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
+                <ScalarProperty Name="Dimension" ColumnName="Dimension" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(T2TModel.Carcass)">
+              <MappingFragment StoreEntitySet="Carcasses">
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialLots">
+            <EntityTypeMapping TypeName="T2TModel.MaterialLot">
+              <MappingFragment StoreEntitySet="MaterialLots">
+                <ScalarProperty Name="ValidTill" ColumnName="ValidTill" />
+                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="QuantityUnitOfMeasure" ColumnName="QuantityUnitOfMeasure" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="MaterialLotStatusID" ColumnName="MaterialLotStatusID" />
+                <ScalarProperty Name="MaterialDefinitionID" ColumnName="MaterialDefinitionID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LotID" ColumnName="LotID" />
+                <ScalarProperty Name="MaterialLotID" ColumnName="MaterialLotID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialLotStatuses">
+            <EntityTypeMapping TypeName="T2TModel.MaterialLotStatus">
+              <MappingFragment StoreEntitySet="MaterialLotStatuses">
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LotStatus" ColumnName="LotStatus" />
+                <ScalarProperty Name="LotStatusID" ColumnName="LotStatusID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialTypes">
+            <EntityTypeMapping TypeName="T2TModel.MaterialType">
+              <MappingFragment StoreEntitySet="MaterialTypes">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="MaterialTypeID" ColumnName="MaterialTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialLotTrackings">
+            <EntityTypeMapping TypeName="T2TModel.MaterialLotTracking">
+              <MappingFragment StoreEntitySet="MaterialLotTrackings">
+                <ScalarProperty Name="TrackingDate" ColumnName="TrackingDate" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Operation" ColumnName="Operation" />
+                <ScalarProperty Name="MaterialLotID" ColumnName="MaterialLotID" />
+                <ScalarProperty Name="TrackingID" ColumnName="TrackingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SemiFinishedMaterialInventories">
+            <EntityTypeMapping TypeName="T2TModel.SemiFinishedMaterialInventory">
+              <MappingFragment StoreEntitySet="SemiFinishedMaterialInventory">
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="InternalCode" ColumnName="InternalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipmentClasses">
+            <EntityTypeMapping TypeName="T2TModel.EquipmentClass">
+              <MappingFragment StoreEntitySet="EquipmentClasses">
+                <ScalarProperty Name="EquipmentElementLevelID" ColumnName="EquipmentElementLevelID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EquipmentClassID" ColumnName="EquipmentClassID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipmentElementLevels">
+            <EntityTypeMapping TypeName="T2TModel.EquipmentElementLevel">
+              <MappingFragment StoreEntitySet="EquipmentElementLevels">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="EquipmentElementLevelName" ColumnName="EquipmentElementLevelName" />
+                <ScalarProperty Name="EquipmentElementLevelID" ColumnName="EquipmentElementLevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EquipmentHmiDatas">
+            <EntityTypeMapping TypeName="T2TModel.EquipmentHmiData">
+              <MappingFragment StoreEntitySet="EquipmentHmiData">
+                <ScalarProperty Name="Alarms" ColumnName="Alarms" />
+                <ScalarProperty Name="Screens" ColumnName="Screens" />
+                <ScalarProperty Name="Tags" ColumnName="Tags" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipments">
+            <EntityTypeMapping TypeName="T2TModel.Equipment">
+              <MappingFragment StoreEntitySet="Equipments">
+                <ScalarProperty Name="ParentEquipment" ColumnName="ParentEquipment" />
+                <ScalarProperty Name="EquipmentClassID" ColumnName="EquipmentClassID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EquipmentID" ColumnName="EquipmentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="T2TModel">
+        <EntityTypeShape EntityType="T2TModel.BillOfMaterial" Width="1.5" PointX="7.5" PointY="4.375" Height="3.1340950520833388" />
+        <EntityTypeShape EntityType="T2TModel.Inerliner" Width="1.5" PointX="7.5" PointY="8.25" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="T2TModel.Lank" Width="1.5" PointX="7.5" PointY="11.125" Height="1.7879850260416657" />
+        <EntityTypeShape EntityType="T2TModel.MaterialClass" Width="1.5" PointX="3" PointY="13.75" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="T2TModel.MaterialDefinition" Width="1.5" PointX="5.25" PointY="13.375" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="T2TModel.MaterialLot" Width="1.5" PointX="10.5" PointY="13.375" Height="3.7109993489583388" />
+        <EntityTypeShape EntityType="T2TModel.MaterialLotStatus" Width="1.5" PointX="8.25" PointY="14.125" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="T2TModel.MaterialType" Width="1.5" PointX="0.75" PointY="14.25" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="T2TModel.Ply" Width="1.5" PointX="7.5" PointY="18.375" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="T2TModel.Protector" Width="1.5" PointX="7.5" PointY="21.625" Height="1.9802864583333353" />
+        <EntityTypeShape EntityType="T2TModel.RawTyre" Width="1.5" PointX="7.5" PointY="24.75" Height="1.9802864583333353" />
+        <EntityTypeShape EntityType="T2TModel.Tyre" Width="1.5" PointX="7.5" PointY="27.875" Height="2.1725878906250031" />
+        <AssociationConnector Association="T2TModel.FK_BillOfMaterials_MaterialAssembly" >
+          <ConnectorPoint PointX="6.49999875" PointY="13.375" />
+          <ConnectorPoint PointX="6.49999875" PointY="6.8053991406250018" />
+          <ConnectorPoint PointX="7.5" PointY="6.8053991406250018" />
+        </AssociationConnector>
+        <AssociationConnector Association="T2TModel.FK_BillOfMaterials_MaterialComponent" >
+          <ConnectorPoint PointX="6.6875025" PointY="13.375" />
+          <ConnectorPoint PointX="6.6875025" PointY="7.2651196875000039" />
+          <ConnectorPoint PointX="7.5" PointY="7.2651196875000039" />
+        </AssociationConnector>
+        <AssociationConnector Association="T2TModel.FK_MaterialClasses_MaterialClasses" >
+          <ConnectorPoint PointX="3.5319230769230767" PointY="16.499492187499996" />
+          <ConnectorPoint PointX="3.5319230769230767" PointY="16.749492187499996" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="16.749492187499996" />
+          <ConnectorPoint PointX="3.9784615384615383" PointY="16.499492187499996" />
+        </AssociationConnector>
+        <AssociationConnector Association="T2TModel.FK_MaterialClasses_MaterialTypes" >
+          <ConnectorPoint PointX="2.25" PointY="15.143992513020834" />
+          <ConnectorPoint PointX="3" PointY="15.143992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="T2TModel.FK_MaterialDefinitions_MaterialClasses" >
+          <ConnectorPoint PointX="4.5" PointY="14.93724609375" />
+          <ConnectorPoint PointX="5.25" PointY="14.93724609375" />
+        </AssociationConnector>
+        <AssociationConnector Association="T2TModel.FK_MaterialLots_MaterialDefinitions" >
+          <ConnectorPoint PointX="6.75" PointY="13.71875" />
+          <ConnectorPoint PointX="10.5" PointY="13.71875" />
+        </AssociationConnector>
+        <AssociationConnector Association="T2TModel.FK_MaterialLots_MaterialLotStatuses" >
+          <ConnectorPoint PointX="9.75" PointY="15.115143229166662" />
+          <ConnectorPoint PointX="10.5" PointY="15.115143229166662" />
+        </AssociationConnector>
+        <InheritanceConnector EntityType="T2TModel.Inerliner" >
+          <ConnectorPoint PointX="6" PointY="13.375" />
+          <ConnectorPoint PointX="6.375" PointY="10.412985026041667" />
+          <ConnectorPoint PointX="6.4177992563473207" PointY="10.405851816650447" />
+          <ConnectorPoint PointX="6.5821982436526785" PointY="10.378451985432887" />
+          <ConnectorPoint PointX="6.605303006347321" PointY="10.374601191650447" />
+          <ConnectorPoint PointX="6.7697019936526788" PointY="10.347201360432887" />
+          <ConnectorPoint PointX="8.625" PointY="10.037985026041666" />
+          <ConnectorPoint PointX="8.625" PointY="10.412985026041667" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="T2TModel.Lank" >
+          <ConnectorPoint PointX="6.375" PointY="13.09568359375" />
+          <ConnectorPoint PointX="6" PointY="13.09568359375" />
+          <ConnectorPoint PointX="6.4166654166666666" PointY="13.09568359375" />
+          <ConnectorPoint PointX="6.5833320833333326" PointY="13.09568359375" />
+          <ConnectorPoint PointX="6.6041691666666669" PointY="13.09568359375" />
+          <ConnectorPoint PointX="6.7708358333333329" PointY="13.09568359375" />
+          <ConnectorPoint PointX="8.25" PointY="13.09568359375" />
+          <ConnectorPoint PointX="8.25" PointY="12.72068359375" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="T2TModel.Ply" >
+          <ConnectorPoint PointX="6" PointY="16.1244921875" />
+          <ConnectorPoint PointX="6" PointY="18" />
+          <ConnectorPoint PointX="8.25" PointY="18" />
+          <ConnectorPoint PointX="8.25" PointY="18.375" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="T2TModel.Protector" >
+          <ConnectorPoint PointX="6" PointY="16.1244921875" />
+          <ConnectorPoint PointX="6" PointY="21.25" />
+          <ConnectorPoint PointX="8.25" PointY="21.25" />
+          <ConnectorPoint PointX="8.25" PointY="21.625" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="T2TModel.Tyre" >
+          <ConnectorPoint PointX="6" PointY="16.1244921875" />
+          <ConnectorPoint PointX="6" PointY="27.5" />
+          <ConnectorPoint PointX="8.25" PointY="27.5" />
+          <ConnectorPoint PointX="8.25" PointY="27.875" />
+        </InheritanceConnector>
+        <InheritanceConnector EntityType="T2TModel.RawTyre" >
+          <ConnectorPoint PointX="6" PointY="16.1244921875" />
+          <ConnectorPoint PointX="6" PointY="24.375" />
+          <ConnectorPoint PointX="8.25" PointY="24.375" />
+          <ConnectorPoint PointX="8.25" PointY="24.75" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="T2TModel.Carcass" Width="4.625" PointX="7.5" PointY="2" Height="1.018779296875" />
+        <EntityTypeShape EntityType="T2TModel.MaterialLotTracking" Width="1.5" PointX="3.375" PointY="0.75" Height="2.5571907552083246" />
+        <InheritanceConnector EntityType="T2TModel.Carcass" >
+          <ConnectorPoint PointX="6" PointY="13.375" />
+          <ConnectorPoint PointX="6" PointY="3.3937792968749996" />
+          <ConnectorPoint PointX="9.8125" PointY="3.3937792968749996" />
+          <ConnectorPoint PointX="9.8125" PointY="3.018779296875" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="T2TModel.SemiFinishedMaterialInventory" Width="2.875" PointX="0.75" PointY="3.75" Height="1.4033821614583388" />
+        <EntityTypeShape EntityType="T2TModel.EquipmentClass" Width="1.875" PointX="0.75" PointY="0.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="T2TModel.EquipmentElementLevel" Width="2.5" PointX="2.875" PointY="5.5" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="T2TModel.EquipmentHmiData" Width="1.5" PointX="1" PointY="5.5" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="T2TModel.Equipment" Width="1.5" PointX="1" PointY="9.25" Height="2.5571907552083388" />
+        <AssociationConnector Association="T2TModel.FK_EquipmentHmiData_Equipments" >
+          <ConnectorPoint PointX="1.75" PointY="9.25" />
+          <ConnectorPoint PointX="1.75" PointY="7.4802864583333335" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,40 @@
+﻿<navigation:Page 
+  x:Class="T2T.AboutView" 
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+  xmlns:fv="clr-namespace:T2T.Framework.Views"
+  xmlns:infrastructure="clr-namespace:T2T.Infrastructure"
+  mc:Ignorable="d" d:DesignWidth="640" d:DesignHeight="480"  
+  Style="{StaticResource PageStyle}" xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
+
+  <Grid x:Name="LayoutRoot">
+        <Grid.Resources>
+            <infrastructure:ActiveItemUriConverter x:Key="activeItemUriConverter" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="About" Style="{StaticResource HeaderTextStyle}" />
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{Binding Count,StringFormat='Number of screens:{0}'}"  FontSize="16" />
+            <TextBlock Text="Opened Screens: " FontSize="16" />
+        </StackPanel>
+       
+        <ListBox x:Name="openedScreens" ItemsSource="{Binding Path=ActiveScreens.View}" Grid.Row="2" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock Text="{Binding DisplayName}" Width="350" />
+                        <TextBlock Text="{Binding Path=CurrentSource}" Width="350" />
+                        <HyperlinkButton Margin="7,0,0,0" Content="Open" NavigateUri="{Binding  Path=CurrentSource}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+
+</navigation:Page >
